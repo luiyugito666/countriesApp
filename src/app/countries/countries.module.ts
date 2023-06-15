@@ -7,6 +7,7 @@ import { ByCapitalPageComponent } from './components/by-capital-page/by-capital-
 import { ByCountryPageComponent } from './components/by-country-page/by-country-page.component';
 import { ByRegionPageComponent } from './components/by-region-page/by-region-page.component';
 import { CountryPageComponent } from './components/country-page/country-page.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -20,7 +21,8 @@ import { CountryPageComponent } from './components/country-page/country-page.com
   ],
   imports: [
     CommonModule,
-    CountriesRoutingModule
+    CountriesRoutingModule,
+    SharedModule
   ]
 })
 export class CountriesModule { }
