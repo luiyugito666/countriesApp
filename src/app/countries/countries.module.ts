@@ -10,6 +10,7 @@ import { CountryPageComponent } from './components/country-page/country-page.com
 import { SharedModule } from '../shared/shared.module';
 import { CountryTableComponent } from './components/country-table/country-table.component';
 import { PaisTableComponent } from './components/pais-table/pais-table.component';
+import { RegionTableComponent } from './components/region-table/region-table.component';
 
 
 
@@ -21,7 +22,8 @@ import { PaisTableComponent } from './components/pais-table/pais-table.component
     ByRegionPageComponent,
     CountryPageComponent,
     CountryTableComponent,
-    PaisTableComponent
+    PaisTableComponent,
+    RegionTableComponent
   ],
   imports: [
     CommonModule,

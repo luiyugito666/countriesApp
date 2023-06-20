@@ -1,0 +1,29 @@
+<div *ngIf="region.length===0;else table"class="alert alert-warning text-center">
+  No hay Región por mostrar
+</div>
+<ng-template #table>
+  <table><thead>
+  <tr>
+    <th>#</th>
+    <th>Icon</th>
+    <th>Bander</th>
+    <th>Nombre</th>
+    <th>Capital</th>
+    <th>Poblacion</th>
+    <th></th>
+  </tr>
+
+</thead>
+<tbody *ngFor="let r of region;let i=index">
+  <tr>
+    <td>{{ i+1}}</td>
+    <td>{{r.flag}}</td>
+    <td><img [src]="r.flags.svg" [alt]="r.name.common"></td>
+    <td>{{r.name.common}}</td>
+    <td>{{r.capital}}</td>
+    <td>{{r.population|number}}</td>
+    <td><a href="">Ver mas...</a></td>
+  </tr>
+</tbody></table>
+ 
+</ng-template>

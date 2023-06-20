@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Country } from '../interfaces/country';
 import { Observable, catchError, of } from 'rxjs';
 import { Countries } from '../interfaces/countries';
+import { Region } from '../interfaces/region';
 
 @Injectable({providedIn: 'root'})
 export class CountriesService {
@@ -26,6 +27,11 @@ export class CountriesService {
     )
 
   }
-  searchRegion(term: string) { }
-
+  searchRegion(term: string): Observable<Region[]> {
+    const url = `${this.apiUrl}/region/${term}`
+    return this.http.get<Region[]>(url)
+      .pipe(
+        catchError(error => of([]))
+      )
+  }
 }
