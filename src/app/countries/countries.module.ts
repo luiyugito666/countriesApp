@@ -9,8 +9,7 @@ import { ByRegionPageComponent } from './components/by-region-page/by-region-pag
 import { CountryPageComponent } from './components/country-page/country-page.component';
 import { SharedModule } from '../shared/shared.module';
 import { CountryTableComponent } from './components/country-table/country-table.component';
-import { PaisTableComponent } from './components/pais-table/pais-table.component';
-import { RegionTableComponent } from './components/region-table/region-table.component';
+
 
 
 
@@ -22,8 +21,7 @@ import { RegionTableComponent } from './components/region-table/region-table.com
     ByRegionPageComponent,
     CountryPageComponent,
     CountryTableComponent,
-    PaisTableComponent,
-    RegionTableComponent
+  
   ],
   imports: [
     CommonModule,
