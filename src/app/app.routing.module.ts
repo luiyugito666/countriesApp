@@ -5,29 +5,24 @@ import { AboutPageComponent } from './shared/pages/about-page/about-page.compone
 import { ContactComponent } from './shared/pages/contact/contact.component';
 import { CountriesModule } from './countries/countries.module';
 const routes: Routes = [
- /*  {
-    path: '',
-    component:HomePageComponent
-
-  }, */
+  /*  {
+     path: '',
+     component:HomePageComponent
+ 
+   }, */
   {
     path: 'about',
     component: AboutPageComponent
 
   },
-   {
+  {
     path: 'contact',
     component: ContactComponent
 
   },
-    {
-    path: 'contact',
-    component: ContactComponent
-
-  },
-    {
+  {
     path: 'countries',
-    loadChildren: ()=>import('./countries/countries.module').then(m=>m.CountriesModule)
+    loadChildren: () => import('./countries/countries.module').then(m => m.CountriesModule)
 
   },
   {
@@ -36,7 +31,7 @@ const routes: Routes = [
 
   }
 
-]
+];
 
 @NgModule({
 
