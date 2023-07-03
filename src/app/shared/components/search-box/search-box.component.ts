@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Input,  OnInit,  Output } from '@angular/core';
-import { Subject, debounceTime } from 'rxjs';
+import { Component, EventEmitter, Input,  OnDestroy,  OnInit,  Output } from '@angular/core';
+import { Subject, Subscription, debounceTime } from 'rxjs';
 
 @Component({
   selector: 'shared-search-box',
@@ -7,9 +7,12 @@ import { Subject, debounceTime } from 'rxjs';
   styles: [
   ]
 })
-export class SearchBoxComponent implements OnInit {
+export class SearchBoxComponent implements OnInit, OnDestroy {
   
-  private debouncer:Subject<string>=new Subject<string>();
+  
+  private debouncer: Subject<string> = new Subject<string>();
+  
+  private debounceSubscription?: Subscription;
 
 
 
@@ -20,10 +23,11 @@ export class SearchBoxComponent implements OnInit {
   public onValue: EventEmitter<string> = new EventEmitter();
 
   @Output()
-  public onDebounce:EventEmitter<string>=new EventEmitter();
+  public onDebounce: EventEmitter<string> = new EventEmitter();
+  
 //se crea undebounce para que el ususario ingrese el dato y sin necesidad de presionar enter, realice la busqueda luego de algun tiempo despues de presionar
   ngOnInit():void {
-    this.debouncer
+    this.debounceSubscription=this.debouncer
       .pipe(
         debounceTime(300)
 
@@ -32,8 +36,12 @@ export class SearchBoxComponent implements OnInit {
         this.onDebounce.emit(value);
       });
   }
-  
-  
+
+  //para destruir las subscripciones del debouncer, para mantener la limpieza para no ocupar memoria
+  ngOnDestroy(): void {
+ this.debounceSubscription?.unsubscribe();
+
+  }
   emiteValue(valuex: string): void {
     this.onValue.emit(valuex);
   }
