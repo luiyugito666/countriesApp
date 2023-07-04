@@ -5,7 +5,11 @@
     <!-- search-box --><!--   (onValue)="searchByCapital($event)" -->
     <shared-search-box 
     (onDebounce)="searchByCapital($event)"
-    placeHolder="bucar por capital"></shared-search-box>
+   
+    [initialValue]="initialValue"
+
+     placeHolder="bucar por capital"
+    ></shared-search-box>
   </div>
 </div>
 <div class="row">

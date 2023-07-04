@@ -2,9 +2,10 @@ import { CountriesService } from './../../services/countries.service';
 import { Component, Input } from '@angular/core';
 
 import { Country } from '../../interfaces/country';
+import { Region } from '../../interfaces/region.type';
 
 
-type Region = 'Africa' | 'Americas' | 'Asia' | 'Europe' | 'Oceania';
+
 @Component({
   selector: 'countries-by-region-page',
   templateUrl: './by-region-page.component.html',
