@@ -2,7 +2,11 @@
 <hr>
 <div class="row">
   <div class="col">
-    <shared-search-box (onDebounce)="searchByCountry($event)" placeHolder="Buscar por Pais"></shared-search-box> 
+    <shared-search-box 
+    (onDebounce)="searchByCountry($event)" 
+    [initialValue]="initialValue"
+    placeHolder="Buscar por Pais"
+    ></shared-search-box> 
   </div>
 
 </div>
@@ -13,6 +17,7 @@
      <!--  <li *ngFor="let c of countries">
         {{c.name.common}}-{{c.population}}
       </li> -->
+      <shared-loading-spinner *ngIf="isLoading"></shared-loading-spinner>
        <countries-table [countries]="countries"></countries-table>
     </ul>
   
